@@ -5,10 +5,20 @@ import { JsonObject, JsonProperty } from "json2typescript";
 export class Origin {
 
     @JsonProperty('name', String, true)
-    name?: number = undefined;
+    name: string = '';
 
     @JsonProperty('url', String, true)
-    url?: string = undefined;
+    url: string = '';
+}
+
+@JsonObject('Location')
+export class Location {
+
+    @JsonProperty('name', String, true)
+    name: string = '';
+
+    @JsonProperty('url', String, true)
+    url: string = '';
 }
 
 @JsonObject('Character')
@@ -35,8 +45,11 @@ export class Character {
     @JsonProperty('image', String, true)
     image?: string = undefined;
 
+    @JsonProperty('origin', Origin, true)
+    origin: Origin = new Origin();
+
     @JsonProperty('location', Location, true)
-    location?: Location = undefined;
+    location: Location = new Location();
 
     @JsonProperty('url', String, true)
     url?: string = undefined;
